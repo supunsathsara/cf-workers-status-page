@@ -32,9 +32,16 @@ monitors:
     expectStatus: 200
     linkable: true # allows the title to be a link, default=true
 
-  - id: blog-cloudflare-com
+  - id: github-io
     name: supunsathsara.github.io
     url: 'https://supunsathsara.github.io'
+    method: GET
+    expectStatus: 200
+    linkable: true
+
+ - id: github-io-test
+    name: supunsathsara.github.gg
+    url: 'https://supunsathsarsa.github.io'
     method: GET
     expectStatus: 200
     linkable: true
