@@ -130,7 +130,7 @@ export async function notifyTwitter(monitor, operational){
   };
   
   let bodyContent = JSON.stringify({
-    tweet: `${monitor.name} is ${operational ? 'live 🟢' : 'currently down. 🔴'} \n ${monitor.url} \n\n -${config.settings.url} \n #${config.settings.twitterHashtag}`,
+    tweet: `${monitor.name} is ${operational ? 'live Again🟢\nThe latest incident has been resolved now' : 'currently down. 🔴\n We just detected this and will be fixed soon'} \n\n : ${config.settings.url} \n #${config.settings.twitterHashtag}`,
   });
   
   return fetch("https://dpdl8s.deta.dev/api/tweet/submit", {
