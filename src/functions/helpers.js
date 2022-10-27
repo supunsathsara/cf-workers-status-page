@@ -122,6 +122,25 @@ export async function notifyDiscord(monitor, operational) {
   })
 }
 
+export async function notifyTwitter(monitor, operational){
+  let headersList = {
+    Authorization: `Bearer ${SECRET_TWITTER_ACCESS_TOKEN_SECRET}`,
+    'Content-Type': 'application/json',
+  };
+  
+  let bodyContent = JSON.stringify({
+    tweet: `${monitor.name} is ${operational ? 'live 🟢' : 'currently down. 🔴'} \n ${monitor.url} \n\n -${config.settings.url} \n #${config.settings.twitterHashtag}`,
+  });
+  
+  return fetch(TWITTER_BOT_ENDPOINT, {
+    method: 'POST',
+    body: bodyContent,
+    headers: headersList,
+  });
+
+
+}
+
 export function useKeyPress(targetKey) {
   const [keyPressed, setKeyPressed] = useState(false)
 

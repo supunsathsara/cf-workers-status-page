@@ -7,6 +7,7 @@ import {
   getKVMonitors,
   setKVMonitors,
   notifyDiscord,
+  notifyTwitter,
 } from './helpers'
 
 function getDate() {
@@ -96,6 +97,13 @@ export async function processCronTrigger(event) {
       SECRET_DISCORD_WEBHOOK_URL !== 'default-gh-action-secret'
     ) {
       event.waitUntil(notifyDiscord(monitor, monitorOperational))
+    }
+
+    //send a tweet
+    if(
+      monitorStatusChanged && typeof SECRET_TWITTER_ACCESS_TOKEN_SECRET !== 'undefined'
+    ){
+      event.waitUntil(notifyTwitter(monitor, monitorOperational))
     }
 
     // make sure checkDay exists in checks in cases when needed
