@@ -101,7 +101,7 @@ export async function processCronTrigger(event) {
 
     //send a tweet
     if(
-      monitorStatusChanged && typeof SECRET_TWITTER_ACCESS_TOKEN_SECRET !== 'undefined'
+      monitorStatusChanged
     ){
       event.waitUntil(notifyTwitter(monitor, monitorOperational))
     }

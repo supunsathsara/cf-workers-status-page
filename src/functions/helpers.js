@@ -124,6 +124,7 @@ export async function notifyDiscord(monitor, operational) {
 
 export async function notifyTwitter(monitor, operational){
   let headersList = {
+    "Accept": "*/*",
     Authorization: `Bearer ${SECRET_TWITTER_ACCESS_TOKEN_SECRET}`,
     'Content-Type': 'application/json',
   };
@@ -132,7 +133,7 @@ export async function notifyTwitter(monitor, operational){
     tweet: `${monitor.name} is ${operational ? 'live 🟢' : 'currently down. 🔴'} \n ${monitor.url} \n\n -${config.settings.url} \n #${config.settings.twitterHashtag}`,
   });
   
-  return fetch(TWITTER_BOT_ENDPOINT, {
+  return fetch("https://dpdl8s.deta.dev/api/tweet/submit", {
     method: 'POST',
     body: bodyContent,
     headers: headersList,
