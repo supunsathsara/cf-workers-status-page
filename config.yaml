@@ -24,6 +24,15 @@ monitors:
     followRedirect: false # should fetch follow redirects, default=false
     linkable: true # allows the title to be a link, default=true
 
+  - id: blog-supunsathsara-com # unique identifier
+    name: blog.supunsathsara.com
+    description: 'Blog Site.'
+    url: 'https://blog.supunsathsara.com'
+    method: GET 
+    expectStatus: 200 # operational status, default=200
+    followRedirect: false 
+    linkable: true 
+
   - id: bio-supunsathsara-com
     name: bio.supunsathsara.com
     description: 'Contact Details.'
